@@ -12,3 +12,4 @@
 - cp .env.example .env 
 - pytest -s
 
+![API Tests](https://github.com/MalihinMihai/restful-booker-api-tests/actions/workflows/api-tests.yml/badge.svg)
