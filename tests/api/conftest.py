@@ -33,6 +33,12 @@ def booking_client(api) -> Booking:
     return Booking(api)
 
 
+@pytest.fixture
+def created_booking(booking_client, booking_payload):
+    booking = booking_client.create_booking(booking_payload)
+    booking_id = booking.json()["bookingid"]
+    yield booking_id
+
 
 @pytest.fixture
 def booking_payload() -> dict:

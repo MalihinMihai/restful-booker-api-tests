@@ -33,13 +33,10 @@ def test_create_booking(booking_client,booking_payload):
     body = r.json()    
     assert body["booking"]["firstname"] == booking_payload["firstname"]
 
-def test_update_booking(booking_client, booking_payload, token):
-    created = booking_client.create_booking(booking_payload)
-    booking_id = created.json()["bookingid"]
-
+def test_update_booking(booking_client, booking_payload, token, created_booking):
+    
     updated_payload = booking_payload.copy()
     updated_payload["totalprice"] = 200
 
-    r = booking_client.update_booking(booking_id=booking_id, token=token, payload=updated_payload)
-
+    r = booking_client.update_booking(booking_id=created_booking, token=token, payload=updated_payload)
     assert r.ok
