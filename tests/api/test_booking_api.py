@@ -40,4 +40,3 @@ def test_update_booking(booking_client, booking_payload, token, created_booking)
     assert r.status == 200
     body = r.json()
     assert body["totalprice"] == updated_payload["totalprice"]
-s
